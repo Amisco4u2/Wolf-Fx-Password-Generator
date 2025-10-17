@@ -3,761 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WOLFFX EA License Key Generator</title>
+    <title>WOLFFX License Key Generator</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        * {
             margin: 0;
-            padding: 20px;
-            color: white;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-        
+
         .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 100%;
+            padding: 40px;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 20px;
+            margin-bottom: 40px;
         }
-        
+
         .header h1 {
-            margin: 0;
+            color: #667eea;
             font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            color: #ffd700;
+            margin-bottom: 10px;
         }
-        
+
         .header p {
-            margin: 10px 0;
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .form-section {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #ffd700;
+            color: #666;
             font-size: 1.1em;
         }
-        
-        .form-group input, .form-group select {
+
+        .license-type {
+            margin-bottom: 30px;
+        }
+
+        .license-type label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .license-type select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            background: #000000;
-            color: white;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: border-color 0.3s;
         }
-        
-        .form-group select option {
-            background: #000000;
-            color: white;
-            padding: 8px;
-        }
-        
-        .form-group input:focus, .form-group select:focus {
+
+        .license-type select:focus {
             outline: none;
-            border-color: #ffd700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            border-color: #667eea;
         }
-        
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+
+        .hardware-option {
+            margin-bottom: 30px;
         }
-        
-        .form-row {
+
+        .hardware-option label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .radio-group {
             display: flex;
             gap: 20px;
         }
-        
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #1e3c72;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            font-weight: normal;
         }
-        
-        .btn:hover {
+
+        .radio-group input[type="radio"] {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 30px;
+        }
+
+        .generate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
-        
-        .btn:active {
+
+        .generate-btn:active {
             transform: translateY(0);
         }
-        
+
         .result-section {
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid #ffd700;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
             display: none;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
         }
-        
-        .license-key {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 8px;
+
+        .result-section.show {
+            display: block;
+            animation: slideIn 0.4s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .license-key-display {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .license-key-display h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .key-text {
             font-family: 'Courier New', monospace;
-            font-size: 18px;
-            text-align: center;
-            color: #ffd700;
-            border: 1px dashed rgba(255, 215, 0, 0.5);
+            font-size: 1.1em;
+            color: #333;
             word-break: break-all;
-            margin: 15px 0;
+            padding: 15px;
+            background: #f0f4ff;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
-        
+
         .copy-btn {
+            width: 100%;
+            padding: 12px;
             background: #28a745;
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 14px;
-            margin-left: 10px;
-            transition: background 0.3s ease;
+            transition: background 0.3s;
         }
-        
+
         .copy-btn:hover {
             background: #218838;
         }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+
+        .copy-btn.copied {
+            background: #17a2b8;
         }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .stat-value {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ffd700;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9em;
-        }
-        
-        .license-history {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
             padding: 20px;
+            border-radius: 8px;
             margin-top: 20px;
         }
-        
-        .license-history h3 {
-            color: #ffd700;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
-            padding-bottom: 10px;
-        }
-        
-        .history-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 5px;
+
+        .info-box h4 {
+            color: #1976D2;
             margin-bottom: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            border-left: 3px solid #ffd700;
+            font-size: 1.1em;
         }
-        
-        .warning {
-            background: rgba(255, 193, 7, 0.2);
-            border: 1px solid #ffc107;
-            border-radius: 8px;
+
+        .info-box ul {
+            list-style-position: inside;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .info-box ul li {
+            margin-bottom: 8px;
+        }
+
+        .hardware-id-display {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
             padding: 15px;
-            margin-bottom: 20px;
-            color: #ffc107;
+            margin-top: 15px;
         }
-        
-        .warning strong {
-            color: #ffed4e;
+
+        .hardware-id-display strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .hardware-id-display code {
+            font-size: 1.1em;
+            color: #333;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>WOLFFX EA License Generator</h1>
-            <p>Professional License Key Management System</p>
-            <p>Version 1.0 - Secure Key Generation</p>
+            <h1>🔐 WOLFFX License Generator</h1>
+            <p>Generate unique license keys for WOLFFX EA</p>
         </div>
-        
-        <div class="warning">
-            <strong>Security Notice:</strong> This generator creates demonstration keys. For production use, implement proper encryption and server-side validation.
+
+        <div class="license-type">
+            <label for="licenseType">Select License Duration:</label>
+            <select id="licenseType">
+                <option value="WEEK1">Weekly (7 days)</option>
+                <option value="MONT1" selected>Monthly (30 days)</option>
+                <option value="QUAR3">Quarterly (90 days)</option>
+                <option value="YEAR1">Yearly (365 days)</option>
+                <option value="LIFET">Lifetime (Permanent)</option>
+            </select>
         </div>
-        
-        <div class="form-section">
-            <h3 style="color: #ffd700; margin-bottom: 20px;">Generate New License</h3>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="customerName">Customer Name</label>
-                    <input type="text" id="customerName" placeholder="Enter customer full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="customerEmail">Customer Email</label>
-                    <input type="email" id="customerEmail" placeholder="customer@email.com">
-                </div>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="licenseType">License Type</label>
-                    <select id="licenseType" required>
-                        <option value="">Select License Duration</option>
-                        <option value="WOLFFX_LICENSE_WEEKLY">Weekly (7 days) - $29</option>
-                        <option value="WOLFFX_LICENSE_MONTHLY">Monthly (30 days) - $99</option>
-                        <option value="WOLFFX_LICENSE_QUARTERLY">Quarterly (90 days) - $249</option>
-                        <option value="WOLFFX_LICENSE_YEARLY">Yearly (365 days) - $799</option>
-                        <option value="WOLFFX_LICENSE_LIFETIME">Lifetime (No expiry) - $1999</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="hardwareMode">Hardware Binding</label>
-                    <select id="hardwareMode" required>
-                        <option value="">Select Binding Type</option>
-                        <option value="UNIVERSAL">Universal (Any computer)</option>
-                        <option value="SPECIFIC">Specific Hardware ID</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="form-group" id="hardwareIdGroup" style="display: none;">
-                <label for="hardwareId">Hardware ID (Leave empty for customer-generated)</label>
-                <input type="text" id="hardwareId" placeholder="Enter specific hardware ID or leave blank">
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="startDate">Start Date</label>
-                    <input type="date" id="startDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="notes">Notes (Optional)</label>
-                    <input type="text" id="notes" placeholder="Order ID, special notes, etc.">
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 25px;">
-                <button class="btn" onclick="generateLicense()">Generate License Key</button>
+
+        <div class="hardware-option">
+            <label>Hardware Binding:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="hardwareType" value="UNIV" checked>
+                    Universal (Any Machine)
+                </label>
+                <label>
+                    <input type="radio" name="hardwareType" value="LOCKED">
+                    Hardware Locked (This Machine)
+                </label>
             </div>
         </div>
-        
-        <div class="result-section" id="resultSection">
-            <h3 style="color: #ffd700; margin-bottom: 15px;">Generated License Key</h3>
-            <div id="licenseResult"></div>
-            
-            <div class="stats" id="licenseStats"></div>
-            
-            <div style="text-align: center; margin-top: 20px;">
-                <button class="btn" onclick="saveLicense()" style="background: #28a745;">Save to History</button>
-                <button class="btn" onclick="clearForm()" style="background: #6c757d; margin-left: 10px;">Generate Another</button>
+
+        <button class="generate-btn" onclick="generateLicense()">
+            🎯 Generate License Key
+        </button>
+
+        <div id="resultSection" class="result-section">
+            <div class="license-key-display">
+                <h3>Your Generated License Key:</h3>
+                <div class="key-text" id="licenseKeyText"></div>
+                <button class="copy-btn" onclick="copyToClipboard()">
+                    📋 Copy License Key
+                </button>
             </div>
-        </div>
-        
-        <div class="license-history">
-            <h3>Recent Generated Licenses</h3>
-            <div id="licenseHistoryList">
-                <p style="color: rgba(255,255,255,0.6); text-align: center;">No licenses generated yet</p>
+
+            <div id="hardwareIdDisplay" class="hardware-id-display" style="display:none;">
+                <strong>Hardware ID for this machine:</strong>
+                <code id="hardwareIdText"></code>
             </div>
-            <div style="text-align: center; margin-top: 15px;">
-                <button class="btn" onclick="exportHistory()" style="background: #17a2b8;">Export History</button>
-                <button class="btn" onclick="clearHistory()" style="background: #dc3545; margin-left: 10px;">Clear History</button>
+
+            <div class="info-box">
+                <h4>📝 How to Use This License:</h4>
+                <ul>
+                    <li>Copy the generated license key above</li>
+                    <li>Open MetaTrader and remove WOLFFX EA from chart</li>
+                    <li>Right-click on WOLFFX EA → Properties → Inputs</li>
+                    <li>Paste the license key in the "LICENSE_KEY" field</li>
+                    <li>Re-attach the EA to your chart</li>
+                    <li>Trading will begin automatically! ✅</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <script>
-        // License generation statistics
-        let generatedCount = parseInt(localStorage.getItem('wolffx_generated_count') || '0');
-        let licenseHistory = JSON.parse(localStorage.getItem('wolffx_license_history') || '[]');
-        
-        // Initialize form
-        document.getElementById('startDate').valueAsDate = new Date();
-        loadHistory();
-        
-        // Hardware mode change handler
-        document.getElementById('hardwareMode').addEventListener('change', function() {
-            const hardwareGroup = document.getElementById('hardwareIdGroup');
-            if (this.value === 'SPECIFIC') {
-                hardwareGroup.style.display = 'block';
-            } else {
-                hardwareGroup.style.display = 'none';
-                document.getElementById('hardwareId').value = '';
+        function generateRandomString(length) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-        });
-        
-        function generateLicense() {
-            const customerName = document.getElementById('customerName').value.trim();
-            const customerEmail = document.getElementById('customerEmail').value.trim();
-            const licenseType = document.getElementById('licenseType').value;
-            const hardwareMode = document.getElementById('hardwareMode').value;
-            const hardwareId = document.getElementById('hardwareId').value.trim();
-            const startDate = document.getElementById('startDate').value;
-            const notes = document.getElementById('notes').value.trim();
-            
-            // Validation
-            if (!customerName || !licenseType || !hardwareMode || !startDate) {
-                alert('Please fill in all required fields');
-                return;
-            }
-            
-            // Generate license key
-            const license = createLicenseKey(customerName, licenseType, startDate, hardwareMode, hardwareId);
-            
-            // Display result
-            displayLicenseResult(license, {
-                customerName,
-                customerEmail,
-                licenseType,
-                hardwareMode,
-                hardwareId,
-                startDate,
-                notes
-            });
-            
-            // Update statistics
-            generatedCount++;
-            localStorage.setItem('wolffx_generated_count', generatedCount.toString());
+            return result;
         }
-        
-        function createLicenseKey(name, type, startDate, hardwareMode, hardwareId) {
-            const start = new Date(startDate);
-            const startTimestamp = Math.floor(start.getTime() / 1000);
+
+        function generateHardwareID() {
+            // Generate a simple hardware ID based on browser/system info
+            const userAgent = navigator.userAgent;
+            const platform = navigator.platform;
+            const language = navigator.language;
             
-            // Calculate expiry based on license type
-            let expiryTimestamp = 0;
-            let duration = 0;
-            
-            switch(type) {
-                case 'WOLFFX_LICENSE_WEEKLY':
-                    duration = 7;
-                    expiryTimestamp = startTimestamp + (7 * 24 * 3600);
-                    break;
-                case 'WOLFFX_LICENSE_MONTHLY':
-                    duration = 30;
-                    expiryTimestamp = startTimestamp + (30 * 24 * 3600);
-                    break;
-                case 'WOLFFX_LICENSE_QUARTERLY':
-                    duration = 90;
-                    expiryTimestamp = startTimestamp + (90 * 24 * 3600);
-                    break;
-                case 'WOLFFX_LICENSE_YEARLY':
-                    duration = 365;
-                    expiryTimestamp = startTimestamp + (365 * 24 * 3600);
-                    break;
-                case 'WOLFFX_LICENSE_LIFETIME':
-                    duration = 0;
-                    expiryTimestamp = 0;
-                    break;
-            }
-            
-            // Create license key components
-            const nameHash = simpleHash(name).toString(36).substr(0, 5).toUpperCase();
-            const typeCode = getTypeCode(type);
-            const timeCode = (startTimestamp % 100000).toString(36).substr(0, 5).toUpperCase();
-            const hwCode = hardwareMode === 'UNIVERSAL' ? 'UNIV' : 
-                          (hardwareId || simpleHash(name + startDate).toString(36).substr(0, 4).toUpperCase());
-            
-            const licenseKey = `WOLFFX-${typeCode}-${nameHash}-${timeCode}-${hwCode}`;
-            
-            return {
-                key: licenseKey,
-                holder: name,
-                type: type,
-                typeDisplay: getTypeDisplay(type),
-                startDate: start,
-                expiryDate: expiryTimestamp ? new Date(expiryTimestamp * 1000) : null,
-                duration: duration,
-                hardwareMode: hardwareMode,
-                hardwareId: hardwareMode === 'SPECIFIC' ? (hardwareId || 'AUTO-GENERATED') : 'UNIVERSAL',
-                generated: new Date()
-            };
-        }
-        
-        function simpleHash(str) {
             let hash = 0;
+            const str = userAgent + platform + language;
+            
             for (let i = 0; i < str.length; i++) {
                 const char = str.charCodeAt(i);
                 hash = ((hash << 5) - hash) + char;
                 hash = hash & hash; // Convert to 32bit integer
             }
-            return Math.abs(hash);
-        }
-        
-        function getTypeCode(type) {
-            const codes = {
-                'WOLFFX_LICENSE_WEEKLY': 'WEEK1',
-                'WOLFFX_LICENSE_MONTHLY': 'MONT1',
-                'WOLFFX_LICENSE_QUARTERLY': 'QUAR3',
-                'WOLFFX_LICENSE_YEARLY': 'YEAR1',
-                'WOLFFX_LICENSE_LIFETIME': 'LIFET'
-            };
-            return codes[type] || 'UNKNW';
-        }
-        
-        function getTypeDisplay(type) {
-            const displays = {
-                'WOLFFX_LICENSE_WEEKLY': 'Weekly (7 days)',
-                'WOLFFX_LICENSE_MONTHLY': 'Monthly (30 days)',
-                'WOLFFX_LICENSE_QUARTERLY': 'Quarterly (90 days)',
-                'WOLFFX_LICENSE_YEARLY': 'Yearly (365 days)',
-                'WOLFFX_LICENSE_LIFETIME': 'Lifetime (No expiry)'
-            };
-            return displays[type] || 'Unknown';
-        }
-        
-        function displayLicenseResult(license, customerData) {
-            const resultSection = document.getElementById('resultSection');
-            const licenseResult = document.getElementById('licenseResult');
-            const licenseStats = document.getElementById('licenseStats');
             
-            // Build result HTML
-            let resultHTML = `
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <div class="license-key">
-                        ${license.key}
-                        <button class="copy-btn" onclick="copyToClipboard('${license.key}')">Copy</button>
-                    </div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px;">
-                    <h4 style="color: #ffd700; margin-top: 0;">License Details</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div><strong>Holder:</strong> ${license.holder}</div>
-                        <div><strong>Type:</strong> ${license.typeDisplay}</div>
-                        <div><strong>Start Date:</strong> ${license.startDate.toLocaleDateString()}</div>
-                        <div><strong>Expiry:</strong> ${license.expiryDate ? license.expiryDate.toLocaleDateString() : 'Never'}</div>
-                        <div><strong>Hardware:</strong> ${license.hardwareMode}</div>
-                        <div><strong>HW ID:</strong> ${license.hardwareId}</div>
-                    </div>
-                </div>
-            `;
-            
-            if (customerData.customerEmail) {
-                resultHTML += `
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-top: 10px;">
-                        <h4 style="color: #ffd700; margin-top: 0;">Customer Information</h4>
-                        <div><strong>Email:</strong> ${customerData.customerEmail}</div>
-                        ${customerData.notes ? `<div><strong>Notes:</strong> ${customerData.notes}</div>` : ''}
-                    </div>
-                `;
+            // Convert to hex and take first 4 characters
+            let hwId = Math.abs(hash).toString(16).toUpperCase();
+            while (hwId.length < 4) {
+                hwId = '0' + hwId;
             }
             
-            licenseResult.innerHTML = resultHTML;
-            
-            // Build stats
-            const daysUntilExpiry = license.expiryDate ? 
-                Math.ceil((license.expiryDate - new Date()) / (1000 * 60 * 60 * 24)) : 'Unlimited';
-            
-            licenseStats.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-value">${license.duration || 'Unlimited'}</div>
-                    <div class="stat-label">License Days</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${daysUntilExpiry}</div>
-                    <div class="stat-label">Days Until Expiry</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${generatedCount + 1}</div>
-                    <div class="stat-label">Total Generated</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">${license.hardwareMode === 'UNIVERSAL' ? 'Any' : '1'}</div>
-                    <div class="stat-label">Computer Limit</div>
-                </div>
-            `;
-            
-            resultSection.style.display = 'block';
-            resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            
-            // Store current license for saving
-            window.currentLicense = { license, customerData };
+            return hwId.substring(0, 4);
         }
-        
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('License key copied to clipboard!');
-            }).catch(err => {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert('License key copied to clipboard!');
-            });
-        }
-        
-        function saveLicense() {
-            if (window.currentLicense) {
-                licenseHistory.unshift({
-                    ...window.currentLicense,
-                    id: Date.now()
-                });
-                
-                // Keep only last 50 licenses
-                if (licenseHistory.length > 50) {
-                    licenseHistory = licenseHistory.slice(0, 50);
-                }
-                
-                localStorage.setItem('wolffx_license_history', JSON.stringify(licenseHistory));
-                loadHistory();
-                alert('License saved to history!');
-            }
-        }
-        
-        function loadHistory() {
-            const historyList = document.getElementById('licenseHistoryList');
-            
-            if (licenseHistory.length === 0) {
-                historyList.innerHTML = '<p style="color: rgba(255,255,255,0.6); text-align: center;">No licenses generated yet</p>';
-                return;
-            }
-            
-            let historyHTML = '';
-            licenseHistory.slice(0, 10).forEach(item => {
-                const { license, customerData } = item;
-                historyHTML += `
-                    <div class="history-item">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                            <strong style="color: #ffd700;">${license.key}</strong>
-                            <span style="font-size: 12px; opacity: 0.7;">${license.generated.toLocaleDateString()}</span>
-                        </div>
-                        <div style="font-size: 12px; opacity: 0.8;">
-                            ${license.holder} | ${license.typeDisplay} | ${license.hardwareMode}
-                            ${customerData.customerEmail ? ` | ${customerData.customerEmail}` : ''}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            if (licenseHistory.length > 10) {
-                historyHTML += `<p style="text-align: center; opacity: 0.6; margin-top: 15px;">... and ${licenseHistory.length - 10} more licenses</p>`;
-            }
-            
-            historyList.innerHTML = historyHTML;
-        }
-        
-        function clearForm() {
-            document.getElementById('customerName').value = '';
-            document.getElementById('customerEmail').value = '';
-            document.getElementById('licenseType').selectedIndex = 0;
-            document.getElementById('hardwareMode').selectedIndex = 0;
-            document.getElementById('hardwareId').value = '';
-            document.getElementById('notes').value = '';
-            document.getElementById('hardwareIdGroup').style.display = 'none';
-            document.getElementById('resultSection').style.display = 'none';
-            window.currentLicense = null;
-            document.getElementById('customerName').focus();
-        }
-        
-        function exportHistory() {
-            if (licenseHistory.length === 0) {
-                alert('No licenses to export');
-                return;
-            }
-            
-            let csvContent = 'License Key,Holder,Email,Type,Start Date,Expiry Date,Hardware Mode,Hardware ID,Generated Date,Notes\n';
-            
-            licenseHistory.forEach(item => {
-                const { license, customerData } = item;
-                const row = [
-                    license.key,
-                    license.holder,
-                    customerData.customerEmail || '',
-                    license.typeDisplay,
-                    license.startDate.toLocaleDateString(),
-                    license.expiryDate ? license.expiryDate.toLocaleDateString() : 'Never',
-                    license.hardwareMode,
-                    license.hardwareId,
-                    license.generated.toLocaleDateString(),
-                    customerData.notes || ''
-                ].map(field => `"${field}"`).join(',');
-                csvContent += row + '\n';
-            });
-            
-            // Create download link
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', `WOLFFX_Licenses_${new Date().toISOString().split('T')[0]}.csv`);
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function clearHistory() {
-            if (confirm('Are you sure you want to clear all license history? This cannot be undone.')) {
-                licenseHistory = [];
-                localStorage.setItem('wolffx_license_history', JSON.stringify(licenseHistory));
-                loadHistory();
-                alert('License history cleared');
-            }
-        }
-        
-        // Auto-save functionality
-        setInterval(() => {
-            if (window.currentLicense && licenseHistory[0]?.id !== window.currentLicense.id) {
-                // Auto-save current license if not already saved
-                const autoSaveData = {
-                    ...window.currentLicense,
-                    id: Date.now(),
-                    autoSaved: true
-                };
-                
-                // Add to temporary storage
-                let tempHistory = JSON.parse(localStorage.getItem('wolffx_temp_licenses') || '[]');
-                tempHistory.unshift(autoSaveData);
-                if (tempHistory.length > 5) {
-                    tempHistory = tempHistory.slice(0, 5);
-                }
-                localStorage.setItem('wolffx_temp_licenses', JSON.stringify(tempHistory));
-            }
-        }, 30000); // Auto-save every 30 seconds
-        
-        // Initialize tooltips and help text
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add help tooltips
-            const helpTexts = {
-                'customerName': 'Full name of the license holder as it will appear in the EA',
-                'customerEmail': 'Email address for license delivery and support',
-                'licenseType': 'Duration and pricing of the license',
-                'hardwareMode': 'Universal allows use on any computer, Specific binds to one computer',
-                'hardwareId': 'Leave blank to let customer generate their own hardware ID',
-                'startDate': 'When the license becomes active',
-                'notes': 'Order number, payment reference, or special instructions'
-            };
-            
-            Object.keys(helpTexts).forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                if (field) {
-                    field.title = helpTexts[fieldId];
-                }
-            });
-        });
-        
-        // Validation helpers
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-        
-        function validateForm() {
-            const email = document.getElementById('customerEmail').value.trim();
-            if (email && !validateEmail(email)) {
-                alert('Please enter a valid email address');
-                return false;
-            }
-            return true;
-        }
-        
-        // Enhanced generate function with validation
+
         function generateLicense() {
-            if (!validateForm()) return;
-            
-            const customerName = document.getElementById('customerName').value.trim();
-            const customerEmail = document.getElementById('customerEmail').value.trim();
             const licenseType = document.getElementById('licenseType').value;
-            const hardwareMode = document.getElementById('hardwareMode').value;
-            const hardwareId = document.getElementById('hardwareId').value.trim();
-            const startDate = document.getElementById('startDate').value;
-            const notes = document.getElementById('notes').value.trim();
+            const hardwareType = document.querySelector('input[name="hardwareType"]:checked').value;
             
-            // Validation
-            if (!customerName || !licenseType || !hardwareMode || !startDate) {
-                alert('Please fill in all required fields');
-                return;
+            const random1 = generateRandomString(6);
+            const random2 = generateRandomString(6);
+            
+            let hardwareId;
+            if (hardwareType === 'UNIV') {
+                hardwareId = 'UNIV';
+            } else {
+                hardwareId = generateHardwareID();
+                document.getElementById('hardwareIdDisplay').style.display = 'block';
+                document.getElementById('hardwareIdText').textContent = hardwareId;
             }
             
-            if (customerName.length < 2) {
-                alert('Customer name must be at least 2 characters long');
-                return;
+            const licenseKey = `WOLFFX-${licenseType}-${random1}-${random2}-${hardwareId}`;
+            
+            document.getElementById('licenseKeyText').textContent = licenseKey;
+            document.getElementById('resultSection').classList.add('show');
+            
+            // Reset copy button
+            const copyBtn = document.querySelector('.copy-btn');
+            copyBtn.textContent = '📋 Copy License Key';
+            copyBtn.classList.remove('copied');
+            
+            // Hide hardware ID if universal
+            if (hardwareType === 'UNIV') {
+                document.getElementById('hardwareIdDisplay').style.display = 'none';
             }
-            
-            if (new Date(startDate) < new Date(new Date().setHours(0,0,0,0))) {
-                if (!confirm('Start date is in the past. Continue anyway?')) {
-                    return;
-                }
-            }
-            
-            // Generate license key
-            const license = createLicenseKey(customerName, licenseType, startDate, hardwareMode, hardwareId);
-            
-            // Display result
-            displayLicenseResult(license, {
-                customerName,
-                customerEmail,
-                licenseType,
-                hardwareMode,
-                hardwareId,
-                startDate,
-                notes
-            });
-            
-            // Update statistics
-            generatedCount++;
-            localStorage.setItem('wolffx_generated_count', generatedCount.toString());
         }
+
+        function copyToClipboard() {
+            const licenseKey = document.getElementById('licenseKeyText').textContent;
+            
+            // Create temporary textarea
+            const textarea = document.createElement('textarea');
+            textarea.value = licenseKey;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            
+            // Select and copy
+            textarea.select();
+            textarea.setSelectionRange(0, 99999); // For mobile
+            
+            try {
+                document.execCommand('copy');
+                
+                // Update button
+                const copyBtn = document.querySelector('.copy-btn');
+                copyBtn.textContent = '✅ Copied to Clipboard!';
+                copyBtn.classList.add('copied');
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    copyBtn.textContent = '📋 Copy License Key';
+                    copyBtn.classList.remove('copied');
+                }, 3000);
+                
+            } catch (err) {
+                alert('Failed to copy. Please manually copy the license key.');
+            }
+            
+            document.body.removeChild(textarea);
+        }
+
+        // Generate a license on page load
+        window.addEventListener('load', function() {
+            setTimeout(generateLicense, 500);
+        });
     </script>
 </body>
 </html>
